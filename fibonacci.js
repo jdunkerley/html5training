@@ -13,14 +13,14 @@ jdunkerley.fibonacci = function() {
 
 		}
 
-		if ( typeof cache[n] !== "undefined" ) {
+		if ( typeof cache[n] !== 'undefined' ) {
 
 			return cache[n];
 
 		}
 
 		cache[n] = arguments.callee(n-1) + arguments.callee(n-2);
-		log( n, " = ", cache[n]);
+		console.log( n + ' = ' + cache[n]);
 		return cache[n];
 
 	};
@@ -31,4 +31,4 @@ jdunkerley.fibonacci = function() {
 
 }();
 
-assert(jdunkerley.fibonacci.get(3) == 2, "f3 = 2");
+console.log( 'f10 = ' + jdunkerley.fibonacci.get(10));
