@@ -17,17 +17,14 @@ function getBlockURL(blockId) {
 }
 
 function getBlockFromWeb(url, https, callback) {
+	var concat = require('concat-stream');
+
 	https.get(url, function(res) {
-		var jsonBody = '';
-		
-		res.on('data', function (d) {
-			jsonBody += d.toString();
+		var concatStream = concat(function(buffer) {
+			callback(JSON.parse(buffer.toString()));
 		});
-
-		res.on('end', function() {
-			callback(JSON.parse(jsonBody));
-		});
-
+ 
+		res.pipe(concatStream);
 	}).on('error', function(e) {
 		console.error('Got an error fetching block: ' + e);
 		callback(null);
