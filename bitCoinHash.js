@@ -43,8 +43,8 @@ function pairwiseReverse(input) {
 	return output;
 }
 
-exports.getSHA256 = getSHA256;
-exports.pairwiseReverse = pairwiseReverse;
-exports.createBlockHeader = createBlockHeader;
-exports.createHash = createHash;
-exports.checkHash = checkHash;
+module.exports = checkHash;
+module.exports.pairwiseReverse = pairwiseReverse;
+module.exports.createBlockHeader = createBlockHeader;
+module.exports.createHash = createHash;
+module.exports.getSHA256 = getSHA256;

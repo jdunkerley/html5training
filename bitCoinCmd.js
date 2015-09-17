@@ -74,7 +74,7 @@ function testGenesisHash() {
 		'nextblockhash':'00000000839a8e6886ab5951d76f411475428afc90947ee320161bbf18eb6048',
 		'isMainChain':true
 	};
-	console.log('Genesis Hash : ' + (bitCoinHash.checkHash(genesis) ? 'Ok' : 'Error'));	
+	console.log('Genesis Hash : ' + (bitCoinHash(genesis) ? 'Ok' : 'Error'));	
 }
 
 function checkBlockFromWeb (blockId) {
@@ -92,7 +92,7 @@ function checkBlockFromWeb (blockId) {
 
 		res.on('end', function() {
 			var blockObject = JSON.parse(jsonBody);
-			console.log('Hash: ' + blockObject.hash + ' - ' + (bitCoinHash.checkHash(blockObject) ? "OK" : "ERROR"));
+			console.log('Hash: ' + blockObject.hash + ' - ' + (bitCoinHash(blockObject) ? "OK" : "ERROR"));
 		})
 
 	}).on('error', function(e) {
