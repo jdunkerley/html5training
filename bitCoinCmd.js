@@ -27,12 +27,12 @@ function checkBlockFromWeb (blockId) {
 
 	bitCoinHash.getBlockFromWeb(url)
 		.then(function(blockObject) {
-		if (blockObject === null) {
-			return;
-		}
+			if (blockObject === null) {
+				return;
+			}
 
-		console.log('Hash: ' + blockObject.hash + ' - ' + (bitCoinHash(blockObject) ? "OK" : "ERROR"));
-	});
+			console.log('Hash: ' + blockObject.hash + ' - ' + (bitCoinHash(blockObject) ? "OK" : "ERROR"));
+		});
 }
 
 // Handle Command Line Args

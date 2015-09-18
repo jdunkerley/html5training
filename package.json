@@ -4,8 +4,6 @@
   "description": "learning html5",
   "main": "bitCoinCmd.js",
   "dependencies": {
-    "concat-stream": "^1.5.0",
-    "promise": "^7.0.4",
     "request-promise": "^0.4.3"
   },
   "devDependencies": {},
