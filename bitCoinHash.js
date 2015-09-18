@@ -16,19 +16,25 @@ function getBlockURL(blockId) {
 	return 'https://blockexplorer.com/api/block/' + blockId;
 }
 
-function getBlockFromWeb(url, https, callback) {
-	var concat = require('concat-stream');
+function getBlockFromWeb(url, https) {
+	var Promise = require('promise');
 
-	https.get(url, function(res) {
-		var concatStream = concat(function(buffer) {
-			callback(JSON.parse(buffer.toString()));
-		});
- 
-		res.pipe(concatStream);
-	}).on('error', function(e) {
-		console.error('Got an error fetching block: ' + e);
-		callback(null);
-	});	
+	return new Promise(function(fullfill, reject) {
+		var concat = require('concat-stream');
+
+		https.get(url, function(res) {
+			var concatStream = concat(function(buffer) {
+				fullfill(JSON.parse(buffer.toString()));
+			});
+
+			res.on('error', function(err) {
+				reject(err);
+			});
+			res.pipe(concatStream);
+		}).on('error', function(e) {
+			reject(e);
+		});	
+	});
 }
 
 function createMerkleRoot(transactionHashes) {

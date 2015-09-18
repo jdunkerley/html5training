@@ -4,11 +4,10 @@
   "description": "learning html5",
   "main": "bitCoinCmd.js",
   "dependencies": {
-    "concat-stream": "^1.5.0"
+    "concat-stream": "^1.5.0",
+    "promise": "^7.0.4"
   },
-  "devDependencies": {
-    "jasmine-core": "^2.3.4"
-  },
+  "devDependencies": {},
   "scripts": {
     "test": "jasmine"
   },
@@ -16,7 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/jdunkerley/html5training.git"
   },
-  "author": "James Dunkerley",
+  "author": "git James Dunkerley",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jdunkerley/html5training/issues"
