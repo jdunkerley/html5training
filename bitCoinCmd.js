@@ -25,8 +25,7 @@ function checkBlockFromWeb (blockId) {
 	var url = bitCoinHash.getBlockURL(blockId);
 	console.log(url);
 
-	var https = require('https');
-	bitCoinHash.getBlockFromWeb(url, https)
+	bitCoinHash.getBlockFromWeb(url)
 		.then(function(blockObject) {
 		if (blockObject === null) {
 			return;

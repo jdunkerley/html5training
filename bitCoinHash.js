@@ -16,25 +16,16 @@ function getBlockURL(blockId) {
 	return 'https://blockexplorer.com/api/block/' + blockId;
 }
 
-function getBlockFromWeb(url, https) {
-	var Promise = require('promise');
+function getBlockFromWeb(url) {
+	var rp = require('request-promise');
 
-	return new Promise(function(fullfill, reject) {
-		var concat = require('concat-stream');
-
-		https.get(url, function(res) {
-			var concatStream = concat(function(buffer) {
-				fullfill(JSON.parse(buffer.toString()));
+	return rp(url)
+		.then(function (body) {
+			var Promise = require('promise');
+			return new Promise(function(fullfill, reject) {
+				fullfill(JSON.parse(body));
 			});
-
-			res.on('error', function(err) {
-				reject(err);
-			});
-			res.pipe(concatStream);
-		}).on('error', function(e) {
-			reject(e);
-		});	
-	});
+		});
 }
 
 function createMerkleRoot(transactionHashes) {
