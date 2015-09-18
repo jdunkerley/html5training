@@ -1,4 +1,5 @@
 describe("createBlockHeader", function() {
+	'use strict';
 	var bitCoinHash = require('../bitCoinHash.js');
 
 	it("is a function", function() {
@@ -16,6 +17,7 @@ describe("createBlockHeader", function() {
 			'previousblockhash':'00000000000008a3a41b85b8b29ad444def299fee21793cd8b9e567eab02cd81'
 		};
 		
+		bitCoinHash.useMerkleRoot(true);
 		var test = bitCoinHash.createBlockHeader(initial);
 		var expected = '01000000' +
 	    	'81cd02ab7e569e8bcd9317e2fe99f2de44d49ab2b8851ba4a308000000000000' +

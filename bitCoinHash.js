@@ -1,6 +1,7 @@
 'use strict';
-
 var crypto = require('crypto');
+var rp = require('request-promise');
+
 var _useMerkleRoot = true;
 
 function useMerkleRoot(value) {
@@ -17,14 +18,9 @@ function getBlockURL(blockId) {
 }
 
 function getBlockFromWeb(url) {
-	var rp = require('request-promise');
-
 	return rp(url)
 		.then(function (body) {
-			var Promise = require('promise');
-			return new Promise(function(fullfill, reject) {
-				fullfill(JSON.parse(body));
-			});
+			return JSON.parse(body);
 		});
 }
 

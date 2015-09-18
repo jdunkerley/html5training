@@ -1,4 +1,5 @@
 describe("getSHA256", function() {
+	'use strict';
 	var bitCoinHash = require('../bitCoinHash.js');
 
 	it("is a function", function() {
