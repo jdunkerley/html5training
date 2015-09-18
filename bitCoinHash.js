@@ -18,10 +18,7 @@ function getBlockURL(blockId) {
 }
 
 function getBlockFromWeb(url) {
-	return rp(url)
-		.then(function (body) {
-			return JSON.parse(body);
-		});
+	return rp(url).then(JSON.parse);
 }
 
 function createMerkleRoot(transactionHashes) {
