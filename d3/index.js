@@ -10,7 +10,7 @@
   var svg = body.append('svg')
     .classed('chart', true)
     .attr({
-      width: width + 30,
+      width: width,
       height: data.length * barHeight
     });
 
@@ -35,21 +35,13 @@
       height: barHeight - 1
     });
 
-  bars.filter(function(d,i) { return i > 0; })
-    .append('line')
-    .style('stroke', 'grey')
-    .attr({
-      x1: function(d,i) { return x(data[i]); },
-      y1: -barHeight / 2,
-      x2: function(d) { return x(d); },
-      y2: barHeight / 2
-    });
-
   bars.append('text')
     .attr({
-      x: function(d) { return x(d) + 3; },
+      x: function(d) { return x(d) - 3; },
       y: barHeight / 2,
       dy: '3px'
     })
-    .text(function(d, i) { return i == 0 ? '' : '+' + (d - data[i-1]); });
+    .text(function(d) { return d; });
+
+  bars.exit().remove();
 })();
