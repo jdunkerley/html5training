@@ -1,0 +1,57 @@
+.chart div {
+    font: 10px sans-serif;
+    background-color: steelblue;
+    text-align: right;
+    padding: 3px;
+    margin: 1px;
+    color: white;
+}
+
+.chart rect {
+    fill: steelblue;
+}
+
+.chart rect:hover {
+    fill: brown;
+}
+
+.chart text {
+    font: 10px sans-serif;
+    text-anchor: middle;
+    fill: grey;
+}
+
+rect.chart.bg {
+    fill: #f9f9f9;
+}
+
+.axis text {
+    font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.x.axis path {
+    display: none;
+}
+
+rect.bar.mercedes {fill:#2ab4a5}
+rect.bar.red-bull {fill:#4f1aab}
+rect.bar.mclaren {fill:#808080}
+rect.bar.williams {fill:#fff; stroke:#b0b0b0; stroke-width:1px}
+rect.bar.force-india {fill:#ff5f0f}
+rect.bar.ferrari {fill:#c30000}
+rect.bar.toro-rosso {fill:#0005c1}
+rect.bar.lotus {fill:#ffb800}
+rect.bar.sauber {fill:#0063ff}
+rect.bar.marussia {fill:#6e0000}
+rect.bar.caterham {fill:#006c00}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}

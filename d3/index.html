@@ -2,54 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Let's Make a Bar Chart</title>
-    <style>
-        .chart div {
-            font: 10px sans-serif;
-            background-color: steelblue;
-            text-align: right;
-            padding: 3px;
-            margin: 1px;
-            color: white;
-        }
+    <title>AngularD3 Bar Chart</title>
+    <link type="text/css" rel="stylesheet" href="css/chart.css" />
 
-        .chart rect {
-            fill: steelblue;
-        }
-
-        .chart rect:hover {
-            fill: brown;
-        }
-
-        .chart text {
-            fill: white;
-            font: 10px sans-serif;
-            text-anchor: middle;
-        }
-
-        .chart .axis text {
-            fill: grey;
-        }
-
-        .axis text {
-            font: 10px sans-serif;
-        }
-
-        .axis path,
-        .axis line {
-            fill: none;
-            stroke: #000;
-            shape-rendering: crispEdges;
-        }
-
-        .x.axis path {
-            display: none;
-        }
-    </style>
 </head>
-<body>
-    <svg width="960" height="500" class="chart"></svg>
+<body ng-app="d3Test" ng-cloak ng-controller="f1DataCtrl as f1Ctrl">
 
-  <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
-  <script type="text/javascript" src="index.js"></script>
+    <d3-bar-chart data="f1Ctrl.data" value-field="f1Ctrl.valueField" class-field="f1Ctrl.classField"></d3-bar-chart>
+    <form>
+        <label for="display">Display </label>
+        <select id="display" ng-model="f1Ctrl.valueField" ng-options="item for item in f1Ctrl.valueFields">
+        </select>
+    </form>
+
+    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script type="text/javascript" src="js/d3Test.js"></script>
+    <script type="text/javascript" src="js/d3Test_BarChart-directive.js"></script>
+    <script type="text/javascript" src="js/d3Test_F1DataCtrl-controller.js"></script>
+    <!-- script type="text/javascript" src="js/index.js"></script -->
 </body>
