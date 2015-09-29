@@ -17,10 +17,18 @@
             fill: steelblue;
         }
 
+        .chart rect:hover {
+            fill: brown;
+        }
+
         .chart text {
             fill: white;
             font: 10px sans-serif;
             text-anchor: middle;
+        }
+
+        .chart .axis text {
+            fill: grey;
         }
 
         .axis text {
@@ -33,10 +41,14 @@
             stroke: #000;
             shape-rendering: crispEdges;
         }
+
+        .x.axis path {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <svg width="460" height="500" class="chart"></svg>
+    <svg width="960" height="500" class="chart"></svg>
 
   <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
   <script type="text/javascript" src="index.js"></script>
