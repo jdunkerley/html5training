@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>F1 Standings via Angular and D3 :)</title>
+    <link type="text/css" rel="stylesheet" href="css/chart.css" />
+
+</head>
+<body ng-app="d3Test" ng-cloak ng-controller="f1DataCtrl as f1Ctrl">
+
+    <d3-bar-chart data="f1Ctrl.data" value-field="f1Ctrl.valueField" class-field="f1Ctrl.classField"></d3-bar-chart>
+    <form>
+        <label for="display">Display </label>
+        <select id="display" ng-model="f1Ctrl.valueField" ng-options="item for item in f1Ctrl.valueFields">
+        </select>
+    </form>
+
+    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script type="text/javascript" src="js/d3Test.js"></script>
+    <script type="text/javascript" src="js/d3Test_BarChart-directive.js"></script>
+    <script type="text/javascript" src="js/d3Test_F1DataCtrl-controller.js"></script>
+</body>
