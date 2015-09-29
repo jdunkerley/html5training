@@ -22,7 +22,7 @@
             });
 
           // Define Margins and Width, Height
-          var margin = {top: 20, right: 30, bottom: 30, left: 45};
+          var margin = {top: 10, right: 60, bottom: 60, left: 45};
           var width = svg.attr('width') - margin.left - margin.right;
           var height = svg.attr('height') - margin.top - margin.bottom;
 
@@ -63,7 +63,12 @@
                   transform: 'translate(0,' + height + ')'
                 });
             }
-            chart.select('g.x.axis').call(xAxis);
+            chart.select('g.x.axis').call(xAxis)
+              .selectAll('text').attr({
+                dx: x.rangeBand(),
+                dy: 10,
+                transform: 'rotate(20)'
+              });
 
             y.domain([0, d3.max(data, function(d) {
               return d[scope.valueField || 'value'];
