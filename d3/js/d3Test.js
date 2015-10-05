@@ -3,6 +3,6 @@
 
   angular.module('d3Test', [
     'd3Test.barChart',
-    'd3Test.f1Data'
+    'd3Test.f1DataServices'
   ]);
 })();

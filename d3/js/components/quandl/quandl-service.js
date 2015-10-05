@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('quandlServices', [
+  angular.module('d3Test.quandlServices', [
     ])
     .service('quandl', [function() {
       var _apiKey = '';
