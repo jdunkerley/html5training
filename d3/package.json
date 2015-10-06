@@ -4,7 +4,8 @@
   "description": "Learning about d3 and d3fx",
   "main": "index.js",
   "scripts": {
-    "test": "karma start karma.conf.js"
+    "test": "karma start karma.conf.js",
+    "start": "http-server -a localhost -p 8000 -c-1"
   },
   "repository": {
     "type": "git",
@@ -14,6 +15,8 @@
   "license": "ISC",
   "devDependencies": {
     "bower": "^1.5.3",
+    "eslint": "^1.6.0",
+    "http-server": "^0.8.5",
     "jasmine-core": "^2.3.4",
     "karma": "^0.13.10",
     "karma-chrome-launcher": "^0.2.0",

@@ -1,10 +1,10 @@
 (function() {
   'use strict';
 
-  angular.module('d3Test.f1DataServices', [
-
-  ])
-    .factory('f1Data', ['$q', function($q) {
+  angular.module('d3Test.f1Data')
+    .factory('f1DataService', ['$q', function($q) {
+      
+      var _categoryFields = ['name', 'constructor', 'country'];
       var _valueFields = ['points', 'wins'];
 
       var _data = [
@@ -32,13 +32,13 @@
       ];
 
       return {
-        hello: 'world',
+        categoryFields: _categoryFields,
         valueFields: _valueFields,
         getData: function() {
             var def =  $q.defer();
             def.resolve(_data);
             return def.promise;
-          },
+          }
       };
-    },]);
+    }]);
 })();

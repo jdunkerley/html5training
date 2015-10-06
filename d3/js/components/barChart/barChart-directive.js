@@ -1,9 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('d3Test.barChart',[
-
-  ])
+  angular.module('d3Test.barChart')
     .directive('d3BarChart', [function() {
       return {
         restrict: 'E',
@@ -100,7 +98,7 @@
             // Enter - Add New Points
             bars.enter().append('rect')
               .attr({
-                class: function(d) { return 'bar ' + (scope.classField ? d[scope.classField].toLowerCase().replace(/ /g,'-') : ''); }
+                class: function(d) { return 'bar ' + (scope.classField ? d[scope.classField].toLowerCase().replace(/ /g, '-') : ''); }
               });
 
             // Update
