@@ -71,6 +71,8 @@
           output.push(newObject);
         }
         
+        output.columnNames = colNames;
+        
         return output;
       }
       
