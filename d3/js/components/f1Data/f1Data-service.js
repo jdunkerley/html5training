@@ -1,18 +1,13 @@
 (function() {
   'use strict';
 
-  angular.module('d3Test.f1Data', [
+  angular.module('d3Test.f1Data')
+    .factory('f1DataService', ['$q', function($q) {
+      
+      var _categoryFields = ['name', 'constructor', 'country'];
+      var _valueFields = ['points', 'wins'];
 
-  ])
-    .controller('f1DataCtrl', ['$http', function($http) {
-      var self = this;
-
-      this.valueField = 'points';
-      this.valueFields = ['points', 'wins'];
-
-      this.classField = 'constructor';
-
-      this.data = [
+      var _data = [
         {name: 'Lewis Hamilton', country: 'GBR', constructor: 'Mercedes', wins: 8, points: 277},
         {name: 'Nico Rosberg', country: 'GER', constructor: 'Mercedes', wins: 3, points: 229},
         {name: 'Sebastian Vettel', country: 'GER', constructor: 'Ferrari', wins: 3, points: 218},
@@ -35,5 +30,15 @@
         {name: 'Will Stevens', country: 'GBR', constructor: 'Manor', wins: 0, points: 0},
         {name: 'Alexander Rossi', country: 'USA', constructor: 'Manor', wins: 0, points: 0},
       ];
+
+      return {
+        categoryFields: _categoryFields,
+        valueFields: _valueFields,
+        getData: function() {
+            var def =  $q.defer();
+            def.resolve(_data);
+            return def.promise;
+          }
+      };
     }]);
 })();
