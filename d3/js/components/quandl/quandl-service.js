@@ -76,6 +76,46 @@
         return output;
       }
       
+      this.createAdjustedSeries = function(dataArray) {                       
+        if (dataArray.columnNames.indexOf('Close') === -1 || dataArray.columnNames.indexOf('Adjusted Close') === -1) {
+          return dataArray; 
+        }                       
+        
+        var rowIdx, colIdx;        
+        var output = [];
+        
+        // Create Column Names
+        var colNames = [];        
+        for (colIdx = 0; colIdx < dataArray.columnNames.length; colIdx++) {
+          if (dataArray.columnNames[colIdx].startsWith('Adjusted')) {
+            continue;
+          }          
+          colNames.push(dataArray.columnNames[colIdx]);
+        }
+        output.columnNames = colNames;
+        
+        // Create Adjusted Versions
+        for (rowIdx = 0; rowIdx < dataArray.length; rowIdx++) {
+          var element = dataArray[rowIdx];
+          var adjusted = {};
+          
+          var scale = element['Adjusted Close'] / element.Close;
+          if (Number.isNaN(scale)) continue; 
+
+          // Copy Date
+          adjusted[colNames[0]] = element[colNames[0]];
+          
+          // Copy Scaled Others
+          for (colIdx = 1; colIdx < colNames.length; colIdx++) {
+            adjusted[colNames[colIdx]] = scale * element[colNames[colIdx]];
+          }          
+          
+          output.push(adjusted);
+        }
+        
+        return output;
+      }
+      
       this.getData = function(databaseCode, dataSetCode) {
         var url = _this.createDataUrl.apply(_this, arguments);
         return $http.get(url)

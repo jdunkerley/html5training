@@ -55,7 +55,7 @@
 "data": [
 ["2015-10-05",45.75,46.889999,45.700001,46.630001,33015500,46.630001],
 ["2015-10-02",44.27,45.57,43.919998,45.57,41571500,45.57],
-["2015-10-01",44.75,44.75,43.75,44.610001,28470400,44.610001]
+["2015-10-01",44.75,44.75,43.75,44.610001,28470400,89.220002]
 ]};
 
     it('should be able to read testObject', function() {
@@ -81,6 +81,17 @@
       expect(parsed[0].Close).toBeDefined('Close');
       expect(parsed[0].Volume).toBeDefined('Volume');
       expect(parsed[0]['Adjusted Close']).toBeDefined('Adjusted Close');
-    });    
+    });
+    
+    it('should be able to create and adjusted version', function() {
+      var parsed = quandlSvc.createAdjustedSeries(quandlSvc.getDataArray(testObject));
+      expect(parsed[0].Date).toBeDefined('Date');
+      expect(parsed[0].Open).toBeDefined('Open');
+      expect(parsed[0].High).toBeDefined('High');
+      expect(parsed[0].Low).toBeDefined('Low');
+      expect(parsed[0].Close).toBeDefined('Close');
+      expect(parsed[0].Volume).toBeDefined('Volume');
+      expect(parsed[2].Volume).toBeDefined(28470400 * 2);      
+    });
   })
 })();
