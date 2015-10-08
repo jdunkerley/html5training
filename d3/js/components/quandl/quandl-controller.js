@@ -26,7 +26,7 @@
               return;             
             }
             
-            _this.data = result;
+            _this.data = quandl.createAdjustedSeries(result);
             _this.statusMessage = 'Ready ...';
             _this.state = 'alert-success';
           });
